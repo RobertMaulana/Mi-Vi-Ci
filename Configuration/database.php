@@ -1,6 +1,6 @@
 <?php
 
-class connection{
+class database{
     public $host = 'localhost';
     public $user = 'root';
     public $pass = '';

@@ -16,15 +16,16 @@ class Books{
     }
     
     public function view_book(){
-        $conn_obj   = new connection();
-//        $conn       = $conn_obj->connect_mysqli();
-        $query      = "SELECT * FROM books";
-        $query_conn = mysqli_query($conn_obj->connect_mysqli(), $query);
+        global $conn;
         
-        if($query_conn){
-            echo 'Koneksi berhasil';
-        }else{
-            echo 'Koneksi gagal';
+        $conn_obj   = new database();
+        $conn       = $conn_obj->connect_mysqli();
+
+        $query      = "SELECT * FROM books";
+        $query_conn = mysqli_query($conn, $query);
+        
+        foreach($query_conn as $data){
+            echo $data['judul'];
         }
     }
     
