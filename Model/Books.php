@@ -16,11 +16,9 @@ class Books{
     }
     
     public function view_book(){
-        global $conn;
         
         $conn_obj   = new database();
         $conn       = $conn_obj->connect_mysqli();
-
         $query      = "SELECT * FROM books";
         $query_conn = mysqli_query($conn, $query);
         
